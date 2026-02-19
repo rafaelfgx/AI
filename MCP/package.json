@@ -1,0 +1,25 @@
+{
+    "name": "mcp",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "update": "npx npm-check-updates -u",
+        "restore": "npm install",
+        "clean": "rm -rf dist",
+        "build": "npm run clean && tsc",
+        "start": "node --env-file=.env dist/servers/server.js",
+        "start:server": "npx @modelcontextprotocol/inspector tsx --env-file=.env src/servers/server.ts",
+        "start:client": "tsx --env-file=.env src/clients/client.ts"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "1.26.0",
+        "sqlite3": "5.1.7",
+        "zod": "4.3.6"
+    },
+    "devDependencies": {
+        "@types/node": "25.3.0",
+        "tsx": "4.21.0",
+        "typescript": "5.9.3"
+    }
+}
