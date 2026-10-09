@@ -1,0 +1,28 @@
+{
+    "name": "mcp",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "update": "npx npm-check-updates -u",
+        "restore": "npm install",
+        "clean": "npx rimraf dist",
+        "build": "npm run clean && tsc",
+        "start:server:stdio": "npx @modelcontextprotocol/inspector tsx --env-file=.env src/servers/server.stdio.ts",
+        "start:server:http": "npx kill-port 3000 && tsx --env-file=.env src/servers/server.http.ts",
+        "start:client:stdio": "tsx --env-file=.env src/clients/client.stdio.ts",
+        "start:client:http": "npx kill-port 3000 && tsx --env-file=.env src/clients/client.http.ts"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "1.32.0",
+        "zod": "4.6.5"
+    },
+    "devDependencies": {
+        "@types/node": "26.6.4",
+        "tsx": "4.23.15",
+        "typescript": "7.0.2"
+    },
+    "allowScripts": {
+        "esbuild@0.28.2": true
+    }
+}
